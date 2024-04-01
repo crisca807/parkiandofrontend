@@ -1,22 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import { NavBar } from "./components/Homepage/NavBar";
-import { Banner } from "./components/Homepage/Banner";
-import { Skills } from "./components/Homepage/Skills";
-import { Projects } from "./components/Homepage/Projects";
-import { Contact } from "./components/Homepage/Contact";
-import { Footer } from "./components/Homepage/Footer";
+import React from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import '../src/css/App.css';
+import '../src/css/login.css';
+import '../src/css/Register.css';
 
+import 'bootstrap/dist/css/bootstrap.min.css';
+import HomePageComponents from '../src/pages/HomePage';
+import Login from './components/login/Login'; // Importa el componente de inicio de sesión
+import Register from './components/RegisterPage/register';
 function App() {
   return (
     <div className="App">
-      <NavBar />
-      <Banner />
-      <Skills />
-      <Projects />
-      <Contact />
-      <Footer />
+      <Router>
+        <Routes>
+          {/* Ruta para la página de inicio */}
+          <Route path="/" element={<HomePageComponents />} />
+          {/* Ruta para el inicio de sesión */}
+          <Route path="/login" element={<Login />} />
+          {/* Puedes agregar más rutas según sea necesario */}
+          <Route path="/register" element={<Register />} />
+          {/* Puedes agregar más rutas según sea necesario */}
+        </Routes>
+      </Router>
     </div>
   );
 }

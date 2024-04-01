@@ -4,6 +4,7 @@ import contactImg from "../../assets/img/dudas.png";
 import 'animate.css';
 import TrackVisibility from 'react-on-screen';
 
+
 export const Contact = () => {
   const formInitialDetails = {
     firstName: '',
@@ -93,3 +94,4 @@ export const Contact = () => {
     </section>
   )
 }
+export default Contact;

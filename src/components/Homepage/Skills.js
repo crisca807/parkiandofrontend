@@ -6,6 +6,7 @@ import meter5 from "../../assets/img/carro.png";
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
 
+
 import colorSharp from "../../assets/img/color-sharp.png"
 
 export const Skills = () => {
@@ -69,3 +70,5 @@ export const Skills = () => {
     </section>
   )
 }
+
+export default Skills; 

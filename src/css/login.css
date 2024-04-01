@@ -1,0 +1,65 @@
+.App {
+    text-align: center;
+    display: flex;
+    min-height: 100vh;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    background-image: url('../assets/img/fondo-login.png'); /* Reemplaza 'ruta/de/la/imagen.jpg' con la ruta de tu imagen de fondo */
+    background-size: cover; /* Ajusta el tamaño de la imagen para que cubra todo el contenedor */
+    background-position: center; /* Centra la imagen */
+  }
+  
+  .auth-form-container, .login-form, .register-form {
+    background-color: rgba(0, 0, 0); /* Negro con 50% de opacidad */
+
+    display: flex;
+    flex-direction: column;
+  }
+
+  .login-header .logo {
+    background-image: url('../assets/img/loguito.png '); /* Actualiza esta ruta */
+    background-size: 100px 110px; /* Ajusta estas dimensiones según lo necesites */
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 100px; /* Asegúrate de que el ancho y el alto coincidan con el background-size */
+    height: 100px;
+    margin: 0 auto; /* Centra el logo si el contenedor padre tiene un display apropiado */
+}
+  
+  @media screen and (min-width: 600px) {
+    .auth-form-container {
+      padding: 5rem;
+      border: 1px solid rgb(0, 0, 0);
+      border-radius: 10px;
+      margin: 0.5rem;
+    }
+  }
+  
+  label {
+    text-align: left;
+    padding: 0.25rem 0;
+  }
+  
+  input {
+    margin: 10px 0;
+    padding: 1rem;
+    border: none;
+    border-radius: 10px;
+  }
+  
+  button {
+    border: none;
+    background-color: rgba(0, 0, 0, 0.8); 
+    padding: 10px 20px; /* Ajusta el padding según sea necesario */
+    border-radius: 20px; /* Bordes redondos */
+    cursor: pointer;
+    color: #ffffff;
+    margin-top: 10px; /* Agrega espacio entre el botón y los campos de datos */
+}
+  
+  .link-btn {
+    background: none;
+    color: white;
+    text-decoration: underline;
+  }

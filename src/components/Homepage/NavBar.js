@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
 import { Navbar, Nav, Container } from "react-bootstrap";
+import { Link } from 'react-router-dom';
 import logo from '../../assets/img/loguito.png';
+
 
 import {
   BrowserRouter as Router
@@ -45,7 +47,7 @@ export const NavBar = () => {
               <Nav.Link href="#skills" className={activeLink === 'skills' ? 'active navbar-link' : 'navbar-link'} onClick={() => onUpdateActiveLink('skills')}>¿Como reservar?</Nav.Link>
               <Nav.Link href="#projects" className={activeLink === 'projects' ? 'active navbar-link' : 'navbar-link'} onClick={() => onUpdateActiveLink('projects')}>Acerca de nosotros</Nav.Link>
               <Nav.Link href="#projects" className={activeLink === 'projects' ? 'active navbar-link' : 'navbar-link'} onClick={() => onUpdateActiveLink('contact')}>Contactanos</Nav.Link>
-              <Nav.Link href="#projects" className={activeLink === 'projects' ? 'active navbar-link' : 'navbar-link'} onClick={() => onUpdateActiveLink('projects')}>Iniciar sesion</Nav.Link>
+              <Link to="/login">Go to Login Page</Link>
             </Nav>
           
           </Navbar.Collapse>
@@ -54,3 +56,4 @@ export const NavBar = () => {
     </Router>
   )
 }
+export default NavBar; 
