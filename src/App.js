@@ -1,5 +1,5 @@
-import logo from './logo.svg';
-import './App.css';
+import logo from './assets/img/logo.svg' 
+import './assets/css/App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { NavBar } from "./components/Homepage/NavBar";
 import { Banner } from "./components/Homepage/Banner";
