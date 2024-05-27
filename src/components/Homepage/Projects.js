@@ -1,5 +1,5 @@
 import { Container, Row, Col, Tab, Nav } from "react-bootstrap";
-import { ProjectCard } from "../ProjectCard";
+import { ProjectCard } from "../Homepage/ProjectCard";
 import projImg1 from "../../assets/img/parq1.png";
 import projImg2 from "../../assets/img/parq2.png";
 import projImg3 from "../../assets/img/parq3.png";
