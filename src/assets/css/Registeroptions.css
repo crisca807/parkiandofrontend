@@ -1,0 +1,87 @@
+.register-options-container {
+    text-align: center;
+    padding: 20px;
+    background-color: #fff;
+  }
+  
+  .logo-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; /* Centra verticalmente */
+    background-image: url('../../assets/img/loguito.png'); /* Ruta de la imagen del logo */
+    background-size: contain; /* Ajusta el tamaño de la imagen */
+    background-repeat: no-repeat; /* Evita que la imagen se repita */
+    width: 100px; /* Ancho de la imagen */
+    height: 100px; /* Altura de la imagen */
+    font-family: Arial, sans-serif; /* Cambia el tipo de letra */
+    text-align: center; /* Centra el texto */
+    margin: 0 auto; /* Centra horizontalmente */
+  }
+  
+  h1 {
+    color: #6c5ce7;
+    font-size: 2rem;
+    margin: 10px 0;
+  }
+  
+  h2 {
+    color: #aaa;
+    margin: 20px 0;
+  }
+  
+  p {
+    color: #aaa;
+    max-width: 600px;
+    margin: 0 auto 40px;
+  }
+  
+  .options {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+  }
+  
+  .option {
+    background-color: rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    border-radius: 10px;
+    width: 400px; /* Ajusta el ancho del contenedor */
+    height: 300px; /* Ajusta la altura del contenedor */
+    text-align: center;
+  }
+  
+  
+  .option img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    margin-bottom: 20px;
+  }
+  
+  .option button {
+    background-color: #6c5ce7;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 1rem;
+    transition: background-color 0.3s;
+  }
+  
+  .option button:hover {
+    background-color: #4834d4;
+  }
+  
+  .option.parkiador {
+    background-image: url('../../assets/img/persona1.png');
+    background-size: contain; /* Cambia 'cover' a 'contain' para que la imagen se ajuste sin recortar */
+    background-position: center;
+  }
+  
+  .option.propietario {
+    background-image: url('../../assets/img/parqueo.jpg');
+    background-size: contain; /* Cambia 'cover' a 'contain' para que la imagen se ajuste sin recortar */
+    background-position: center;
+  }

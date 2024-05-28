@@ -1,16 +1,17 @@
-import logo from './assets/img/logo.svg' 
-import './assets/css/App.css';
+import React from 'react';
+
 import 'bootstrap/dist/css/bootstrap.min.css';
+import RegisterOptions from "./components/Registeroptions/options";
 
-// Importaciones de componentes
 
+
+// Otros importaciones de componentes...
 
 function App() {
   return (
-    <div className="App">
-      { 
-     }
-      
+    <div>
+      <RegisterOptions/>
+     
     </div>
   );
 }
