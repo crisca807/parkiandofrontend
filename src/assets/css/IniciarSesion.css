@@ -1,0 +1,49 @@
+/* IniciarSesion.css */
+.login-form {
+    margin-top: 50px;
+  }
+  
+  .form-wrapper {
+    background: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  }
+  
+  .form-wrapper h2 {
+    font-weight: 700;
+    color: #333;
+  }
+  
+  .form-wrapper .form-control {
+    border-radius: 5px;
+    border: 1px solid #ccc;
+  }
+  
+  .form-wrapper .btn-primary {
+    background-color: #007bff;
+    border: none;
+    padding: 10px;
+    font-size: 16px;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+  }
+  
+  .form-wrapper .btn-primary:hover {
+    background-color: #0056b3;
+  }
+  
+  .text-center {
+    margin-top: 15px;
+  }
+  
+  .register-link {
+    color: #007bff;
+    font-weight: 600;
+    text-decoration: none;
+  }
+  
+  .register-link:hover {
+    text-decoration: underline;
+  }
+  
