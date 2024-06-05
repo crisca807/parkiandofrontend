@@ -1,5 +1,6 @@
 import React from 'react';
-import '../../assets/css/Registeroptions.css'; // Importa los estilos
+import '../../assets/css/Registeroptions.css'; 
+import { Link } from 'react-router-dom';
 
 const RegisterOptions = () => {
   return (

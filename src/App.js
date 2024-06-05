@@ -1,20 +1,11 @@
 import React from 'react';
-
 import 'bootstrap/dist/css/bootstrap.min.css';
-import RegisterOptions from "./components/Registeroptions/options";
-import User_Register from './components/Homepage/User_Register';
-import Parkin_Register from './components/Homepage/Parking_Register';
-
-
-
-
-// Otros importaciones de componentes...
+import Routes from "./components/Homepage/Routes";
 
 function App() {
   return (
     <div>
-      <Parkin_Register/>
-     
+      <Routes />
     </div>
   );
 }

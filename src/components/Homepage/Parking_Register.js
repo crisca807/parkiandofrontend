@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import '../../assets/css/Register_Form.css';
 
 export const Parkin_Register = () => {
@@ -9,7 +10,7 @@ export const Parkin_Register = () => {
           <img src={require('../../assets/img/profile.png')} alt="Usuario" className="user-icon" />
         </div>
         <form className="register-form">
-          <h2>Registrate</h2>
+          <h2>Regístrate</h2>
           <div className="form-row">
             <label>
               <input type="text" name="username" placeholder="Nombre de Usuario" required />
@@ -32,7 +33,7 @@ export const Parkin_Register = () => {
           <button type="submit">Registrar</button>
         </form>
         <p className="login-link">
-          ¿Ya tienes cuenta? <a href="/login">Iniciar Sesión</a>
+          ¿Ya tienes cuenta? <Link to="../Loginpage/SignIn.js">Iniciar Sesión</Link>
         </p>
       </div>
       <img src={require('../../assets/img/carro prom.png')} alt="Decoración" className="decorative-icon" />
@@ -41,4 +42,3 @@ export const Parkin_Register = () => {
 }
 
 export default Parkin_Register;
-
