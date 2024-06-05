@@ -13,7 +13,7 @@ import Parkin_Register from './components/Homepage/Parking_Register';
 function App() {
   return (
     <div>
-      <RegisterOptions/>
+      <Parkin_Register/>
      
     </div>
   );

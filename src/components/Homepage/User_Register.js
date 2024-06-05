@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import '../../assets/css/User_Form.css';
 import userIcon from '../../assets/img/user_icon.png';
-import cityImage from '../../assets/img/city.png';
 
 export const User_Register = () => {
   const [acceptedTerms, setAcceptedTerms] = useState(false);
