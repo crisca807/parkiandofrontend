@@ -3,7 +3,7 @@ import '../../assets/css/User_Form.css';
 import userIcon from '../../assets/img/user_icon.png';
 import cityImage from '../../assets/img/city.png';
 
-export const UserRegister = () => {
+export const User_Register = () => {
   const [acceptedTerms, setAcceptedTerms] = useState(false);
 
   const handleCheckboxChange = () => {
@@ -55,4 +55,4 @@ export const UserRegister = () => {
   );
 };
 
-export default UserRegister;
+export default User_Register;

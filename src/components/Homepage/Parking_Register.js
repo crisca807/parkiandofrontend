@@ -1,7 +1,7 @@
 import React from 'react';
 import '../../assets/css/Register_Form.css';
 
-export const Register = () => {
+export const Parkin_Register = () => {
   return (
     <div className="page-container">
       <div className="register-container">
@@ -39,4 +39,6 @@ export const Register = () => {
     </div>
   );
 }
+
+export default Parkin_Register;
 
