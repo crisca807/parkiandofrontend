@@ -40,7 +40,7 @@ export const User_Register = () => {
             </button>
           </form>
           <p className="login-link">
-            ¿Ya tienes cuenta? <link to="../Loginpage/SignIn.js">Iniciar Sesión</link>
+            ¿Ya tienes cuenta? <link to="signin">Iniciar Sesión</link>
           </p>
         </div>
         <div className="separator"></div>

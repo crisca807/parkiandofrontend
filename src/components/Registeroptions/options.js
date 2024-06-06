@@ -13,12 +13,12 @@ const RegisterOptions = () => {
       <div className="options">
         <div className="option parkiador">
           <button onClick={() => console.log('Registrarse como Parkiador')}>
-            Regístrate como PARKIADOR.
+            <link to="user_register">Regístrate como PARKIADOR.</link>
           </button>
         </div>
         <div className="option propietario">
           <button onClick={() => console.log('Registrarse como Propietario de Parqueadero')}>
-            Regístrate como PROPIETARIO DE PARQUEADERO.
+            <link to="parking_register">Regístrate como PROPIETARIO DE PARQUEADERO.</link>
           </button>
         </div>
       </div>
