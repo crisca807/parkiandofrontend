@@ -1,4 +1,3 @@
-// Contact.js
 import React from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
 import contactImg from '../../assets/img/dudas.png';
@@ -65,5 +64,5 @@ export const Contact = () => {
         </Row>
       </Container>
     </section>
-  )
+  );
 };

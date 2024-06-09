@@ -12,23 +12,11 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { Link as RouterLink } from 'react-router-dom';
-import '../../assets/css/loginstyles.css'; // Importa los estilos CSS
+import '../../assets/css/Login_Styles.css'; // Importa los estilos CSS
 
-function Copyright() {
+function SignIn() {
   return (
-    <Typography variant="body2" color="textSecondary" align="center">
-      {'Copyright © '}
-      <Link color="inherit" href="https://mui.com/">
-        Your Website
-      </Link>{' '}
-      {new Date().getFullYear()}
-      {'.'}
-    </Typography>
-  );
-}
-
-export default function SignIn() {
-  return (
+    <div className='body-login'>
     <Container component="main" maxWidth="xs">
       <CssBaseline />
       <div className="paper">
@@ -66,7 +54,8 @@ export default function SignIn() {
             label="Remember me"
           />
           <Button
-            type="submit"
+            component={RouterLink}
+            to="/home"
             fullWidth
             variant="contained"
             color="primary"
@@ -89,8 +78,18 @@ export default function SignIn() {
         </form>
       </div>
       <Box mt={8}>
-        <Copyright />
+        <Typography variant="body2" color="textSecondary" align="center">
+          {'Copyright © '}
+          <Link color="inherit" href="https://mui.com/">
+            Your Website
+          </Link>{' '}
+          {new Date().getFullYear()}
+          {'.'}
+        </Typography>
       </Box>
     </Container>
+    </div>
   );
 }
+
+export default SignIn;

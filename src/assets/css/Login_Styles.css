@@ -1,4 +1,4 @@
-body {
+.body-login {
   margin: 0;
   padding: 0;
   font-family: Arial, sans-serif;
@@ -36,10 +36,10 @@ body {
 .submit {
   margin: 24px 0 16px;
   font-size: 20px;
-  background-color: #6200ea; /* Cambia el color del botón a morado oscuro */
-  color: white; /* Cambia el color del texto del botón a blanco */
+  background-color: #6200ea;
+  color: white;
 }
 
 .forgot-password {
-  color: white; /* Cambia el color del texto del enlace "Forgot password?" a blanco */
+  color: white;
 }

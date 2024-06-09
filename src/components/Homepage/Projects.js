@@ -1,5 +1,6 @@
+import React from 'react';
 import { Container, Row, Col, Tab, Nav } from "react-bootstrap";
-import { ProjectCard } from "../Homepage/ProjectCard";
+import { ProjectCard } from "./ProjectCard";
 import projImg1 from "../../assets/img/parq1.png";
 import projImg2 from "../../assets/img/parq2.png";
 import projImg3 from "../../assets/img/parq3.png";
@@ -8,7 +9,6 @@ import 'animate.css';
 import TrackVisibility from 'react-on-screen';
 
 export const Projects = () => {
-
   const projects = [
     {
       title: "PARQUEADERO VALLES DE CAFAM",
@@ -25,7 +25,6 @@ export const Projects = () => {
       description: "Alta flujo de vehiculos",
       imgUrl: projImg3,
     },
-    
   ];
 
   return (
@@ -35,7 +34,7 @@ export const Projects = () => {
           <Col size={12}>
             <TrackVisibility>
               {({ isVisible }) =>
-              <div className={isVisible ? "animate__animated animate__fadeIn": ""}>
+              <div className={isVisible ? "animate__animated animate__fadeIn" : ""}>
                 <h2>NUESTROS ESTABLECIMIENTOS ☆☆☆</h2>
                 <p>Descubre nuestros parqueaderos preferidos, seleccionados para ofrecerte la mejor experiencia. Únete a nosotros y disfruta de un estacionamiento excepcional</p>
                 <Tab.Container id="projects-tabs" defaultActiveKey="first">
@@ -53,19 +52,12 @@ export const Projects = () => {
                   <Tab.Content id="slideInUp" className={isVisible ? "animate__animated animate__slideInUp" : ""}>
                     <Tab.Pane eventKey="first">
                       <Row>
-                        {
-                          projects.map((project, index) => {
-                            return (
-                              <ProjectCard
-                                key={index}
-                                {...project}
-                                />
-                            )
-                          })
-                        }
+                        {projects.map((project, index) => (
+                          <ProjectCard key={index} {...project} />
+                        ))}
                       </Row>
                     </Tab.Pane>
-                    <Tab.Pane eventKey="section">
+                    <Tab.Pane eventKey="second">
                       <p>Desafiamos el tedio de encontrar parqueaderos en Usme! Nuestra solución: una plataforma donde encuentras y reservas fácilmente desde múltiples opciones según tu ubicación. ¡Adiós a las largas esperas y trayectos agotadores! Descubre cómo simplificamos el estacionamiento en Usme. ¡Tu comodidad es nuestra meta! </p>
                     </Tab.Pane>
                     <Tab.Pane eventKey="third">
@@ -78,7 +70,7 @@ export const Projects = () => {
           </Col>
         </Row>
       </Container>
-      <img className="background-image-right" src={colorSharp2}></img>
+      <img className="background-image-right" src={colorSharp2} alt="background" />
     </section>
-  )
-}
+  );
+};

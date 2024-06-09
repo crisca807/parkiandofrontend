@@ -4,6 +4,7 @@ import '../../assets/css/Register_Form.css';
 
 export const Parkin_Register = () => {
   return (
+    <div className='register-page'>
     <div className="page-container">
       <div className="register-container">
         <div className="register-header">
@@ -37,6 +38,7 @@ export const Parkin_Register = () => {
         </p>
       </div>
       <img src={require('../../assets/img/carro prom.png')} alt="Decoración" className="decorative-icon" />
+    </div>
     </div>
   );
 }
