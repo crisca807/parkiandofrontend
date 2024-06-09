@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import '../../assets/css/User_Form.css';
 import userIcon from '../../assets/img/user_icon.png';
+import { Link } from 'react-router-dom';
 
-export const User_Register = () => {
+const User_Register = () => {
   const [acceptedTerms, setAcceptedTerms] = useState(false);
 
   const handleCheckboxChange = () => {
@@ -40,7 +41,7 @@ export const User_Register = () => {
             </button>
           </form>
           <p className="login-link">
-            ¿Ya tienes cuenta? <link to="signin">Iniciar Sesión</link>
+            ¿Ya tienes cuenta? <Link to="/signin">Iniciar Sesión</Link>
           </p>
         </div>
         <div className="separator"></div>

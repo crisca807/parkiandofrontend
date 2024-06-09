@@ -1,11 +1,9 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import App from "./App"; // Importa App correctamente
+import { createRoot } from 'react-dom/client'
+//import 'bootstrap/dist/css/bootstrap.min.css';
+import AppRoutes from './AppRoutes';
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
+const container = document.getElementById('root');
+const root = createRoot(container);
+
+root.render(<AppRoutes />);

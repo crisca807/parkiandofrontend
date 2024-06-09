@@ -33,7 +33,7 @@ export const Parkin_Register = () => {
           <button type="submit">Registrar</button>
         </form>
         <p className="login-link">
-          ¿Ya tienes cuenta? <Link to="signIn">Iniciar Sesión</Link>
+          ¿Ya tienes cuenta? <Link to="#">Iniciar Sesión</Link>
         </p>
       </div>
       <img src={require('../../assets/img/carro prom.png')} alt="Decoración" className="decorative-icon" />

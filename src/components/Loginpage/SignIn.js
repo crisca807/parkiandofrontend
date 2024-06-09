@@ -11,6 +11,7 @@ import Box from '@mui/material/Box';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
+import { Link as RouterLink } from 'react-router-dom';
 import '../../assets/css/loginstyles.css'; // Importa los estilos CSS
 
 function Copyright() {
@@ -35,7 +36,7 @@ export default function SignIn() {
           <LockOutlinedIcon />
         </Avatar>
         <Typography component="h1" variant="h5">
-         Iniciar sesion
+          Iniciar sesión
         </Typography>
         <form className="form" noValidate>
           <TextField
@@ -43,9 +44,9 @@ export default function SignIn() {
             margin="normal"
             required
             fullWidth
-            id="correo electronico"
-            label="Correo electronico"
-            name="Correo electronicio"
+            id="correo-electronico"
+            label="Correo electrónico"
+            name="email"
             autoComplete="email"
             autoFocus
           />
@@ -54,10 +55,10 @@ export default function SignIn() {
             margin="normal"
             required
             fullWidth
-            name="Contraseña"
+            name="password"
             label="Contraseña"
             type="password"
-            id="Contraseña"
+            id="contraseña"
             autoComplete="current-password"
           />
           <FormControlLabel
@@ -80,9 +81,9 @@ export default function SignIn() {
               </Link>
             </Grid>
             <Grid item>
-              <link to="../Homepage/User_Register.js" variant="body2">
+              <RouterLink to="/user_register" variant="body2">
                 {"Don't have an account? Sign Up"}
-              </link>
+              </RouterLink>
             </Grid>
           </Grid>
         </form>

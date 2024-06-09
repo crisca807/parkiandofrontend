@@ -1,9 +1,8 @@
-/* loginstyles.css */
 body {
   margin: 0;
   padding: 0;
   font-family: Arial, sans-serif;
-  background-image: url('../img/banner-bg.png');
+  background-image: url('../../assets/img/banner-bg.png');
   background-size: cover;
   background-position: center;
   color: white;
