@@ -1,4 +1,5 @@
 import React from 'react';
+import '../../assets/css/home/skills.css'
 import { Container, Row, Col } from "react-bootstrap";
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';

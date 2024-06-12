@@ -1,4 +1,5 @@
 import React from 'react';
+import '../../assets/css/home/banner.css';
 import { Container, Row, Col } from 'react-bootstrap';
 import useBannerLogic from '../../containers/Homepagecontainer/BannerLogic';
 import headerImg from '../../assets/img/carro prom.png';

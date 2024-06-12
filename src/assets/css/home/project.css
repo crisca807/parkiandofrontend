@@ -1,0 +1,49 @@
+/**** Projects Css ****/
+.project {
+    padding: 50px 0 100px 0;
+  }
+  .project h2 {
+    font-size: 35px;
+    font-weight: 700;
+    margin-bottom: 10px;
+  }
+  .project p {
+    color: #B8B8B8;
+    font-size: 18px;
+    letter-spacing: 0.8px;
+    line-height: 1.5em;
+    width: 96%;
+    margin: auto;
+  }
+  .project .proj-imgbx {
+    position: relative;
+  }
+  .project .proj-imgbx img {
+    border-radius: 20px;
+  }
+  .project .proj-imgbx .proj-txtx {
+    position: absolute;
+    bottom: 0;
+    padding: 30px 20px;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(0deg, #0E0E0E 0%, rgba(14, 14, 14, 0) 100%);
+    border-radius: 20px;
+    transition: 0.5s;
+    text-align: left;
+  }
+  .project .proj-imgbx:hover .proj-txtx {
+    opacity: 1;
+  }
+  .project .proj-imgbx span {
+    display: inline-block;
+  }
+  .project .proj-imgbx h4 {
+    font-size: 22px;
+    font-weight: 700;
+  }
+  .project .proj-imgbx span {
+    font-size: 16px;
+    color: #B8B8B8;
+  }
+  
