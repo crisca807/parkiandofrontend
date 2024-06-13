@@ -1,5 +1,6 @@
 import React from 'react';
 import logo from '../../assets/img/loguito.png'
+import { Link } from 'react-router-dom'; // Importa Link desde react-router-dom
 import '../../assets/css/home/Nav-register.css'; // Importa el archivo CSS
 
 const Navbar = () => {
@@ -10,6 +11,9 @@ const Navbar = () => {
                     <img src={logo} alt="Logo" />
                 </a>
                 <ul className="navbar-links">
+                <li>
+                        <Link to="/signin">Iniciar sesión</Link>
+                    </li>
                     <li>
                         <a href="#home">Nosotros</a>
                     </li>
