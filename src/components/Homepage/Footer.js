@@ -1,28 +1,56 @@
 import React from 'react';
-import { Container, Row, Col } from "react-bootstrap";
-import logo from "../../assets/img/loguito.png";
-import navIcon1 from "../../assets/img/nav-icon1.svg";
-import navIcon2 from "../../assets/img/nav-icon2.svg";
-import navIcon3 from "../../assets/img/nav-icon3.svg";
+import { Container, Row, Col } from 'react-bootstrap';
+import parkiandoLogo from '../../assets/img/loguito.png';
+import facebookLogo from '../../assets/img/facebook-logo.png';
+import twitterLogo from '../../assets/img/twitter-logo.png';
+import instagramLogo from '../../assets/img/instagram-logo.png';
+import linkedinLogo from '../../assets/img/linkedin-logo.png';
+import '../../assets/css/home/footer.css';
 
-export const Footer = () => {
+const Footer = () => {
   return (
     <footer className="footer">
       <Container>
-        <Row className="align-items-center">
-          <Col size={12} sm={6}>
-            <img src={logo} alt="Logo" />
+        <Row>
+          <Col xs={12} sm={6} md={3} className="footer-col">
+            <img src={parkiandoLogo} alt="Parkiando Logo" className="footer-logo" />
+            <p className="rights-text">Derechos reservados Parkiando 2023 ®</p>
           </Col>
-          <Col size={12} sm={6} className="text-center text-sm-end">
-            <div className="social-icon">
-              <a href="#"><img src={navIcon1} alt="Icon" /></a>
-              <a href="#"><img src={navIcon2} alt="Icon" /></a>
-              <a href="#"><img src={navIcon3} alt="Icon" /></a>
+          <Col xs={12} sm={6} md={3} className="footer-col">
+            <h5>Contacto</h5>
+            <ul className="contact-list">
+              <li>
+                <span>Teléfono: (123) 456-7890</span>
+              </li>
+              <li>
+                <span>Correo Electrónico: info@parkiando.com</span>
+              </li>
+              <li>
+                <span>Dirección: Calle Ficticia #123, Ciudad Ficticia</span>
+              </li>
+            </ul>
+          </Col>
+          <Col xs={12} md={6} className="footer-col">
+            <h5>Síguenos</h5>
+            <div className="social-icons">
+              <a href="#!">
+                <img src={facebookLogo} alt="Facebook Logo" />
+              </a>
+              <a href="#!">
+                <img src={twitterLogo} alt="Twitter Logo" />
+              </a>
+              <a href="#!">
+                <img src={instagramLogo} alt="Instagram Logo" />
+              </a>
+              <a href="#!">
+                <img src={linkedinLogo} alt="LinkedIn Logo" />
+              </a>
             </div>
-            <p>Derechos reservados parkiando 2023 ®</p>
           </Col>
         </Row>
       </Container>
     </footer>
   );
 };
+
+export default Footer;

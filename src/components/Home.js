@@ -1,7 +1,7 @@
 import React from 'react';
 import { Banner } from './Homepage/Banner';
-import { Contact } from './Homepage/Contact';
-import { Footer } from './Homepage/Footer';
+import Contact  from './Homepage/Contact';
+import Footer from './Homepage/Footer';
 import Navbar from './Homepage/NavBar';
 import { Projects } from './Homepage/Projects';
 import { Skills } from './Homepage/Skills';

@@ -1,48 +1,75 @@
-/**** Contact Css ****/
 .contact {
-    padding: 50px 0 0 0;
+  padding: 50px 0;
+}
+
+.contact .contact-form {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 20px;
+  padding: 30px;
+  width: 100%;
+  max-width: 600px; /* Ajusta el ancho máximo del formulario */
+  margin: auto; /* Centra el formulario horizontalmente */
+}
+
+.contact .contact-form h2 {
+  font-size: 35px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  text-align: center;
+  justify-content: center;
+}
+
+.contact .contact-form form {
+  width: 100%;
+}
+
+.contact .contact-form input,
+.contact .contact-form textarea {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 5px;
+  padding: 15px 20px;
+  width: 100%;
+  color: #fff;
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.contact .contact-form textarea {
+  resize: vertical; /* Permite redimensionar solo verticalmente */
+}
+
+.contact .contact-form button {
+  color: #fff;
+  font-weight: 700;
+  font-size: 18px;
+  margin-top: 20px;
+  letter-spacing: 0.8px;
+  background: linear-gradient(90.21deg, rgba(170, 54, 124, 0.5) -5.91%, rgba(74, 47, 189, 0.5) 111.58%);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: 20px;
+  padding: 15px 20px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.contact .contact-form button:hover {
+  background: linear-gradient(90.21deg, rgba(170, 54, 124, 0.8) -5.91%, rgba(74, 47, 189, 0.8) 111.58%);
+}
+
+.contact .success {
+  color: #4CAF50;
+  margin-top: 10px;
+}
+
+.contact .danger {
+  color: #FF5722;
+  margin-top: 10px;
+}
+
+@media (max-width: 768px) {
+  .contact .contact-form {
+    padding: 20px;
   }
-  .contact .contact-bx {
-    padding: 0 0 40px 0;
-  }
-  .contact .contact-bx h3 {
-    font-size: 28px;
-    font-weight: 700;
-    margin-bottom: 25px;
-  }
-  .contact form {
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    border-radius: 20px;
-    padding: 30px 40px 40px 40px;
-    width: 60%;
-    margin: auto;
-  }
-  .contact form .form-group {
-    margin-bottom: 20px;
-  }
-  .contact form input,
-  .contact form textarea {
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    border-radius: 5px;
-    padding: 15px 20px;
-    width: 100%;
-    color: #fff;
-    font-size: 16px;
-  }
-  .contact form button {
-    color: #fff;
-    font-weight: 700;
-    font-size: 20px;
-    margin-top: 20px;
-    letter-spacing: 0.8px;
-    display: flex;
-    align-items: center;
-    background: linear-gradient(90.21deg, rgba(170, 54, 124, 0.5) -5.91%, rgba(74, 47, 189, 0.5) 111.58%);
-    border: 1px solid rgba(255, 255, 255, 0.5);
-    border-radius: 20px;
-    padding: 15px 20px;
-    cursor: pointer;
-  }
-  
+}

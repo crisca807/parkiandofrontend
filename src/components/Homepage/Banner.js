@@ -20,7 +20,7 @@ export const Banner = () => {
                 <div className={isVisible ? "animate__animated animate__fadeIn" : ""}>
                   <h1>{`¡BIENVENIDOS A PARKIANDO!`}</h1>
                   <p>Parkiando hace que aparcar sea fácil y conveniente! Reserva tu estacionamiento sin filas ni esperas desde tu celular en cualquier momento. ¡No más estrés ni pérdida de tiempo.</p>
-                  <button onClick={() => console.log('connect')}>UNETE <ArrowRightCircle size={25} /></button>
+                  <button className='Button-join' onClick={() => console.log('connect')}>ÚNETE <ArrowRightCircle size={25} /></button>
                 </div>}
             </TrackVisibility>
           </Col>
