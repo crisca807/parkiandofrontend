@@ -12,11 +12,11 @@ function AppRoutes() {
     <Router>
       <div className='Routes'>
         <Routes>
-          <Route path="/" element={<RegisterOptions />} />
+          <Route path="/registerOptions" element={<RegisterOptions />} />
           <Route path="/user_register" element={<User_Register />} />
           <Route path="/parking_register" element={<Parkin_Register />} />
           <Route path="/signin" element={<SignIn />} />
-          <Route path="/home" element={<Home />} />
+          <Route path="/" element={<Home />} />
         </Routes>
       </div>
     </Router>

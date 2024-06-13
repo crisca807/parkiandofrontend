@@ -55,7 +55,7 @@ function SignIn() {
           />
           <Button
             component={RouterLink}
-            to="/home"
+            to="/"
             fullWidth
             variant="contained"
             color="primary"
