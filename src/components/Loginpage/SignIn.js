@@ -11,23 +11,12 @@ import Box from '@mui/material/Box';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
-import '../../assets/css/loginstyles.css'; // Importa los estilos CSS
+import { Link as RouterLink } from 'react-router-dom';
+import '../../assets/css/Login_Styles.css'; // Importa los estilos CSS
 
-function Copyright() {
+function SignIn() {
   return (
-    <Typography variant="body2" color="textSecondary" align="center">
-      {'Copyright © '}
-      <Link color="inherit" href="https://mui.com/">
-        Your Website
-      </Link>{' '}
-      {new Date().getFullYear()}
-      {'.'}
-    </Typography>
-  );
-}
-
-export default function SignIn() {
-  return (
+    <div className='body-login'>
     <Container component="main" maxWidth="xs">
       <CssBaseline />
       <div className="paper">
@@ -35,7 +24,7 @@ export default function SignIn() {
           <LockOutlinedIcon />
         </Avatar>
         <Typography component="h1" variant="h5">
-         Iniciar sesion
+          Iniciar sesión
         </Typography>
         <form className="form" noValidate>
           <TextField
@@ -43,9 +32,9 @@ export default function SignIn() {
             margin="normal"
             required
             fullWidth
-            id="correo electronico"
-            label="Correo electronico"
-            name="Correo electronicio"
+            id="correo-electronico"
+            label="Correo electrónico"
+            name="email"
             autoComplete="email"
             autoFocus
           />
@@ -54,10 +43,10 @@ export default function SignIn() {
             margin="normal"
             required
             fullWidth
-            name="Contraseña"
+            name="password"
             label="Contraseña"
             type="password"
-            id="Contraseña"
+            id="contraseña"
             autoComplete="current-password"
           />
           <FormControlLabel
@@ -65,7 +54,8 @@ export default function SignIn() {
             label="Remember me"
           />
           <Button
-            type="submit"
+            component={RouterLink}
+            to="/"
             fullWidth
             variant="contained"
             color="primary"
@@ -80,16 +70,26 @@ export default function SignIn() {
               </Link>
             </Grid>
             <Grid item>
-              <Link href="#" variant="body2">
+              <RouterLink to="/user_register" variant="body2">
                 {"Don't have an account? Sign Up"}
-              </Link>
+              </RouterLink>
             </Grid>
           </Grid>
         </form>
       </div>
       <Box mt={8}>
-        <Copyright />
+        <Typography variant="body2" color="textSecondary" align="center">
+          {'Copyright © '}
+          <Link color="inherit" href="https://mui.com/">
+            Your Website
+          </Link>{' '}
+          {new Date().getFullYear()}
+          {'.'}
+        </Typography>
       </Box>
     </Container>
+    </div>
   );
 }
+
+export default SignIn;

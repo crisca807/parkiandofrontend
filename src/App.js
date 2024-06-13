@@ -1,17 +1,11 @@
 import React from 'react';
-
 import 'bootstrap/dist/css/bootstrap.min.css';
-import RegisterOptions from "./components/Registeroptions/options";
-
-
-
-// Otros importaciones de componentes...
+import AppRoutes from "./AppRoutes";
 
 function App() {
   return (
     <div>
-      <RegisterOptions/>
-     
+      <AppRoutes />
     </div>
   );
 }
