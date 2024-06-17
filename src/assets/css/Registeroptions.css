@@ -1,14 +1,34 @@
 .register-options-container {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  color: white;
+}
+
+.background-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+}
+
+.content {
   text-align: center;
   padding: 20px;
-  background-color: #fff;
+  z-index: 1;
 }
 
 .logo-section {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center; /* Centra verticalmente */
+  justify-content: center;
   background-image: url('../../assets/img/loguito.png'); /* Ruta de la imagen del logo */
   background-size: contain; /* Ajusta el tamaño de la imagen */
   background-repeat: no-repeat; /* Evita que la imagen se repita */
@@ -19,46 +39,62 @@
   margin: 0 auto; /* Centra horizontalmente */
 }
 
-h1 {
-  color: #6c5ce7;
-  font-size: 2rem;
-  margin: 10px 0;
+.text-content {
+  background-color: rgba(0, 0, 0, 0.6); /* Fondo semi-transparente para mejorar legibilidad */
+  padding: 20px;
+  border-radius: 10px;
+  margin-bottom: 40px;
 }
 
 h2 {
-  color: #aaa;
+  color: #fff;
   margin: 20px 0;
 }
 
 p {
-  color: #aaa;
+  color: #ddd;
   max-width: 600px;
-  margin: 0 auto 40px;
+  margin: 0 auto;
 }
 
 .options {
   display: flex;
-  justify-content: center;
+  flex-direction: column; /* Cambiar a columna para que sea más responsive */
   gap: 20px;
+  align-items: center; /* Centrar los elementos en dispositivos pequeños */
 }
 
 .option {
-  background-color: rgba(0, 0, 0, 0.1);
-  padding: 20px;
-  border-radius: 10px;
-  width: 400px; /* Ajusta el ancho del contenedor */
-  height: 300px; /* Ajusta la altura del contenedor */
+  position: relative;
+  width: 300px;
+  height: 260px;
   text-align: center;
+  transition: transform 0.3s, opacity 0.3s;
+  border-radius: 10px;
 }
 
-.option img {
+.option .image-container {
   width: 100%;
-  height: auto;
+  height: 100%;
   border-radius: 10px;
-  margin-bottom: 20px;
+  background-size: cover;
+  background-position: center;
+  transition: transform 0.3s;
+}
+
+.option.parkiador .image-container {
+  background-image: url('../../assets/img/persona1.png');
+}
+
+.option.propietario .image-container {
+  background-image: url('../../assets/img/parqueo.jpg');
 }
 
 .option button {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
   background-color: #6c5ce7;
   color: #fff;
   border: none;
@@ -73,14 +109,18 @@ p {
   background-color: #4834d4;
 }
 
-.option.parkiador {
-  background-image: url('../../assets/img/persona1.png');
-  background-size: contain; /* Cambia 'cover' a 'contain' para que la imagen se ajuste sin recortar */
-  background-position: center;
+.option.selected {
+  transform: scale(1.1);
+  opacity: 1;
 }
 
-.option.propietario {
-  background-image: url('../../assets/img/parqueo.jpg');
-  background-size: contain; /* Cambia 'cover' a 'contain' para que la imagen se ajuste sin recortar */
-  background-position: center;
+.option:not(.selected) {
+  transform: scale(0.9);
+  opacity: 0.7;
+}
+
+@media (min-width: 768px) {
+  .options {
+    flex-direction: row; /* Cambiar a fila en dispositivos más grandes */
+  }
 }
