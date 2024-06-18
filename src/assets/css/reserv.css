@@ -1,9 +1,0 @@
-.reservation-form-container {
-    display: flex;
-    justify-content: center;
-  }
-  
-  .reservation-form {
-    width: 100%;
-    max-width: 400px;
-  }

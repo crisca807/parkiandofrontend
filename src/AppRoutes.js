@@ -6,6 +6,8 @@ import Parkin_Register from './components/Homepage/Parking_Register.js';
 import SignIn from './components/Loginpage/SignIn.js';
 import Home from './components/Home.js';
 import CommentBox from './components/Comment/Comment.js';
+import Reserve from './components/Reservepage/Reserver.js';
+
 
 // Componente que contiene las rutas
 function AppRoutes() {
@@ -19,6 +21,7 @@ function AppRoutes() {
           <Route path="/parking_register" element={<Parkin_Register />} />
           <Route path="/signin" element={<SignIn />} />
           <Route path="/" element={<Home />} />
+          <Route path="/Reserve" element={<Reserve />} />
         </Routes>
       </div>
     </Router>
