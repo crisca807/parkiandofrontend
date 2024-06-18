@@ -6,15 +6,15 @@ import Parkin_Register from './components/Homepage/Parking_Register.js';
 import SignIn from './components/Loginpage/SignIn.js';
 import Home from './components/Home.js';
 import CommentBox from './components/Comment/Comment.js';
+import Profile from './components/Homepage/Profile.js';
 import Reserve from './components/Reservepage/Reserver.js';
-
-
 // Componente que contiene las rutas
 function AppRoutes() {
   return (
     <Router>
       <div className='Routes'>
         <Routes>
+          <Route path="/profile" element={<Profile />} />
           <Route path="/commentBox" element={<CommentBox />} />
           <Route path="/registerOptions" element={<RegisterOptions />} />
           <Route path="/user_register" element={<User_Register />} />
