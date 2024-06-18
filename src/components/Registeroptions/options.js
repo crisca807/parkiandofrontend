@@ -54,6 +54,7 @@ const RegisterOptions = () => {
         </div>
       </div>
     </div>
+    
   );
 };
 
