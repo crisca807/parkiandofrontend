@@ -8,7 +8,9 @@ import Home from './components/Home.js';
 import CommentBox from './components/Comment/Comment.js';
 import Profile from './components/Homepage/Profile.js';
 import Reserve from './components/Reservepage/Reserver.js';
-// Componente que contiene las rutas
+import EstablecimientoForm from './components/Establishmentpage/Establishment.js';
+import CommentsPage from './components/Reviewpage/Review.js';
+
 function AppRoutes() {
   return (
     <Router>
@@ -22,6 +24,10 @@ function AppRoutes() {
           <Route path="/signin" element={<SignIn />} />
           <Route path="/" element={<Home />} />
           <Route path="/Reserve" element={<Reserve />} />
+          <Route path="/establishment" element={<EstablecimientoForm/>} />
+          <Route path="/commentsPage" element={<CommentsPage/>} />
+
+
         </Routes>
       </div>
     </Router>

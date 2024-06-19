@@ -2,8 +2,8 @@
   position: relative;
   overflow: hidden;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  justify-content: center; /* Centra horizontalmente */
+  align-items: center; /* Centra verticalmente */
   height: 100vh;
   color: white;
 }
@@ -26,21 +26,20 @@
 
 .logo-section {
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-image: url('../../assets/img/loguito.png'); /* Ruta de la imagen del logo */
-  background-size: contain; /* Ajusta el tamaño de la imagen */
-  background-repeat: no-repeat; /* Evita que la imagen se repita */
-  width: 100px; /* Ancho de la imagen */
-  height: 100px; /* Altura de la imagen */
-  font-family: Arial, sans-serif; /* Cambia el tipo de letra */
-  text-align: center; /* Centra el texto */
-  margin: 0 auto; /* Centra horizontalmente */
+  background-image: url('../../assets/img/loguito.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 100px;
+  height: 100px;
+  font-family: Arial, sans-serif;
+  text-align: center;
+  margin: 0 auto;
 }
 
 .text-content {
-  background-color: rgba(0, 0, 0, 0.6); /* Fondo semi-transparente para mejorar legibilidad */
+  background-color: rgba(0, 0, 0, 0.6);
   padding: 20px;
   border-radius: 10px;
   margin-bottom: 40px;
@@ -59,9 +58,9 @@ p {
 
 .options {
   display: flex;
-  flex-direction: column; /* Cambiar a columna para que sea más responsive */
+  flex-direction: column;
   gap: 20px;
-  align-items: center; /* Centrar los elementos en dispositivos pequeños */
+  align-items: center; /* Centra los elementos en el eje horizontal */
 }
 
 .option {
@@ -98,7 +97,7 @@ p {
   background-color: #6c5ce7;
   color: #fff;
   border: none;
-  padding: 10px 20px;
+  padding: 12px 24px; /* Aumentar el padding para hacer los botones más largos */
   cursor: pointer;
   border-radius: 5px;
   font-size: 1rem;
@@ -121,6 +120,7 @@ p {
 
 @media (min-width: 768px) {
   .options {
-    flex-direction: row; /* Cambiar a fila en dispositivos más grandes */
+    flex-direction: row;
+    justify-content: center; /* Centra los elementos horizontalmente en dispositivos grandes */
   }
 }
