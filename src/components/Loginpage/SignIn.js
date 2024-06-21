@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useState } from 'react';
+import axios from 'axios';
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -9,10 +10,31 @@ import Box from '@mui/material/Box';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
-import { Link as RouterLink } from 'react-router-dom';
-import '../../assets/css/Login_Styles.css'; // Importa los estilos CSS
+import { Link as RouterLink, useNavigate } from 'react-router-dom';
+import '../../assets/css/Login_Styles.css';
 
 function SignIn() {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [error, setError] = useState('');
+  const navigate = useNavigate();
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await axios.post('http://localhost:3004/api/user/auth', { email, password });
+      if (response.data.message === 'success' && response.data.token) {
+        localStorage.setItem('token', response.data.token);
+        navigate('/');
+      } else {
+        setError('Correo electrónico o contraseña inválidos');
+      }
+    } catch (error) {
+      console.error('Error al autenticar usuario:', error);
+      setError('Error al autenticar usuario. Por favor, inténtalo de nuevo más tarde.');
+    }
+  };
+
   return (
     <div className='body-login'>
       <Container component="main" maxWidth="xs">
@@ -24,7 +46,7 @@ function SignIn() {
           <Typography component="h1" variant="h5">
             Iniciar sesión
           </Typography>
-          <form className="form" noValidate>
+          <form className="form" noValidate onSubmit={handleSubmit}>
             <TextField
               variant="outlined"
               margin="normal"
@@ -36,6 +58,8 @@ function SignIn() {
               autoComplete="email"
               autoFocus
               className="textField"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
             />
             <TextField
               variant="outlined"
@@ -48,10 +72,16 @@ function SignIn() {
               id="contraseña"
               autoComplete="current-password"
               className="textField"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
             />
+            {error && (
+              <Typography color="error" variant="body2">
+                {error}
+              </Typography>
+            )}
             <Button
-              component={RouterLink}
-              to="/"
+              type="submit"
               fullWidth
               variant="contained"
               className="submit"

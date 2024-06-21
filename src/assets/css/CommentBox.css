@@ -1,10 +1,8 @@
-/* C:\Parkiando\parkiandofrontend\src\assets\css\home\CommentBox.css */
-
 .background {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
-  height: 120vh;
+  height: 100vh;
   background-image: url('../img/Fondo22.jpg'); /* Ruta a tu imagen de fondo */
   background-size: cover;
   background-position: center;
@@ -24,6 +22,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-top: 100px; /* Ajusta el margen superior según sea necesario */
 }
 
 .header {
@@ -129,3 +128,60 @@
   color: #6a0dad;
   margin-top: 16px;
 }
+
+/* Estilos para el navbar */
+.navbar-comment {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: rgba(0, 0, 0, 0.9);
+  width: 100%;
+  backdrop-filter: blur(5px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  position: fixed;
+  top: 0;
+  z-index: 1000;
+}
+
+.navbar-logo-comment {
+  max-width: 100px;
+  height: 80px;
+}
+
+.navbar-links-comment {
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+}
+
+.navbar-links-comment a,
+.navbar-links-comment button {
+  margin-left: 20px;
+  font-size: 1rem;
+  color: var(--color-texto);
+  text-decoration: none;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  transition: color 0.3s ease, transform 0.2s ease;
+  text-align: center;
+  font-family: 'Roboto', sans-serif;
+}
+
+.navbar-links-comment a:hover,
+.navbar-links-comment button:hover {
+  color: var(--color-secundario);
+  transform: scale(1.05);
+}
+
+.navbar-links-comment a {
+  padding: 10px 15px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.navbar-links-comment a:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import axios from '../../Api/Axiosconfig.js';
 import '../../assets/css/CommentBox.css'; // Asegúrate de que la ruta al CSS sea correcta
 import logo from '../../assets/img/logoPK.jpg';
@@ -28,10 +29,20 @@ const CommentBox = () => {
             setError('Error al enviar el comentario. Inténtalo de nuevo más tarde.');
         }
     };
-    
 
     return (
         <div className="background">
+            <nav className="navbar-comment">
+                <Link to="/">
+                    <img src={logo} alt="Logo de Establecimiento" className="navbar-logo-comment" />
+                </Link>
+                <div className="navbar-links-comment">
+                    <Link to="/"><span>Inicio</span></Link>
+                    <Link to="/profile"><span>Perfil</span></Link>
+                    <button onClick={() => alert('¡Sesión cerrada!')}>Cerrar Sesión</button>
+                </div>
+            </nav>
+
             <div className="comment-box-container">
                 <div className="header">
                     <img src={logo} alt="Parkiando Logo" className="logo" />
