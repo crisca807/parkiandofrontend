@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom'; // Import useNavigate
 import '../../assets/css/Register_Form.css';
 import axios from '../../Api/Axiosconfig.js';
 
@@ -16,6 +16,7 @@ const Parkin_Register = () => {
   });
   const [error, setError] = useState('');
   const [serverStatus, setServerStatus] = useState('checking');
+  const navigate = useNavigate(); // Create navigate instance
 
   useEffect(() => {
     const checkServerConnection = async () => {
@@ -88,6 +89,7 @@ const Parkin_Register = () => {
       });
       setError('');
       alert('¡Usuario registrado exitosamente!');
+      navigate('/establishment'); // Redirect to the establishment page
     } catch (error) {
       console.error('Error al registrar usuario:', error.response);
       if (error.response && error.response.status === 400) {
@@ -188,18 +190,14 @@ const Parkin_Register = () => {
                 <option value="admin">Administrador</option>
               </select>
             </div>
-            <div className="form-row">
-              <label>
+            <div className="terms-container">
                 <input
                   type="checkbox"
-                  name="terms"
                   checked={acceptedTerms}
                   onChange={handleCheckboxChange}
-                  required
                 />
-                Acepto los términos y condiciones
-              </label>
-            </div>
+                <label>Acepto <Link to="/terminos_condiciones">términos y condiciones</Link></label>
+              </div>
             <button type="submit" disabled={!acceptedTerms}>Registrar</button>
           </form>
           <p className="login-link">
