@@ -1,12 +1,10 @@
-
-
 import React, { useState } from 'react';
 import { MapContainer, TileLayer, Marker } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import L from 'leaflet';
 import { Link } from 'react-router-dom';
+import axios from '../../Api/Axiosconfig.js'; // Asegúrate de que la ruta sea correcta según tu estructura de archivos
 import logo from '../../assets/img/loguito.png';
-
 import '../../assets/css/reserve.css';
 
 const parqueaderos = [
@@ -35,7 +33,7 @@ function Reserve() {
   const [duracionEstancia, setDuracionEstancia] = useState(0);
   const [precioTotal, setPrecioTotal] = useState(0);
   const [placaVehiculo, setPlacaVehiculo] = useState('');
-  const [tipoVehiculo, setTipoVehiculo] = useState('carro'); // Opción por defecto es carro
+  const [tipoVehiculo, setTipoVehiculo] = useState('carro'); // Default to car
 
   const handleMarkerClick = (parqueadero) => {
     setSelectedParqueadero(parqueadero);
@@ -62,7 +60,7 @@ function Reserve() {
 
   const handleTipoVehiculoChange = (e) => {
     setTipoVehiculo(e.target.value);
-    calcularPrecioTotal(duracionEstancia, e.target.value); // Actualizar el precio total cuando se cambia el tipo de vehículo
+    calcularPrecioTotal(duracionEstancia, e.target.value);
   };
 
   const calcularPrecioTotal = (duracion, tipo = tipoVehiculo) => {
@@ -73,36 +71,58 @@ function Reserve() {
     }
   };
 
-  const handleFormSubmit = (e) => {
+  const handleFormSubmit = async (e) => {
     e.preventDefault();
     if (!selectedParqueadero || duracionEstancia <= 0 || !fechaInicio || !horaInicio || !placaVehiculo) {
       alert('Por favor completa todos los campos.');
       return;
     }
-
-    const tipoVehiculoText = tipoVehiculo === 'moto' ? 'moto' : 'carro';
-    alert(`Reserva para ${selectedParqueadero.title} registrada el ${fechaInicio} a las ${horaInicio}. Duración: ${duracionEstancia} minutos. Tipo de vehículo: ${tipoVehiculoText}. Precio Total: $${precioTotal}`);
-    setSelectedParqueadero(null);
-    setFechaInicio('');
-    setHoraInicio('');
-    setDuracionEstancia(0);
-    setPrecioTotal(0);
-    setPlacaVehiculo('');
-    setTipoVehiculo('carro'); // Resetear tipo de vehículo a carro después de enviar el formulario
+  
+    const reservationData = {
+      parkingLotId: selectedParqueadero.id,
+      startDate: fechaInicio,
+      startTime: horaInicio,
+      duration: duracionEstancia,
+      totalPrice: precioTotal,
+      plate: placaVehiculo,
+      vehicleType: tipoVehiculo === 'carro' ? 'car' : 'motorcycle', // Asegúrate de que tipoVehiculo sea 'car' o 'motorcycle'
+    };
+  
+    try {
+      const response = await axios.post('http://localhost:3004/api/reservations', reservationData);
+      console.log('Reserva creada correctamente:', response.data);
+  
+      // Mostrar alerta de reserva exitosa
+      alert('¡Reserva exitosa!');
+  
+      // Reiniciar campos después de una reserva exitosa
+      setSelectedParqueadero(null);
+      setFechaInicio('');
+      setHoraInicio('');
+      setDuracionEstancia(0);
+      setPrecioTotal(0);
+      setPlacaVehiculo('');
+      setTipoVehiculo('carro'); // o el valor predeterminado que prefieras
+    } catch (error) {
+      console.error('Error al crear la reserva:', error.response.data.error);
+      alert('Error al crear la reserva. Por favor intenta de nuevo.');
+    }
   };
+  
+  
 
   return (
     <div>
-    <nav className="navbar navbar-register">
-      <Link to="/">
-        <img src={logoSrc} alt="Logo MiApp" className="navbar-logo" /> {/* Utiliza la imagen dinámica */}
-      </Link>
-      <div className="navbar-links navbar-links-register">
-        <Link to="/"><span>Inicio</span></Link>
-        <Link to="/profile"><span>Perfil</span></Link>
-        <button onClick={() => alert('¡Sesión cerrada!')}>Cerrar Sesión</button>
-      </div>
-    </nav>
+      <nav className="navbar navbar-register">
+        <Link to="/">
+          <img src={logoSrc} alt="Logo MiApp" className="navbar-logo" />
+        </Link>
+        <div className="navbar-links navbar-links-register">
+          <Link to="/"><span>Inicio</span></Link>
+          <Link to="/profile"><span>Perfil</span></Link>
+          <button onClick={() => alert('¡Sesión cerrada!')}>Cerrar Sesión</button>
+        </div>
+      </nav>
       <div className="Reserve">
         <h1 className="main-title">Reserva tu nuevo parqueadero</h1>
         <div className="map-container">
@@ -160,9 +180,9 @@ function Reserve() {
               <div className="form-group">
                 <label htmlFor="tipoVehiculo">Tipo de vehículo:</label>
                 <select id="tipoVehiculo" value={tipoVehiculo} onChange={handleTipoVehiculoChange} required>
-                  <option value="carro">Carro</option>
-                  <option value="moto">Moto</option>
-                </select>
+  <option value="carro">Carro</option>
+  <option value="moto">Moto</option>
+</select>
               </div>
               <div className="form-group">
                 <label>Total de precio:</label>
