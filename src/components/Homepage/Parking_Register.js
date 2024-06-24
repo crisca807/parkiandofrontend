@@ -57,13 +57,29 @@ const Parkin_Register = () => {
       setError('Las contraseñas no coinciden');
       return;
     }
+
+    // Verificar si el correo electrónico ya está registrado
+    try {
+      const emailExistsResponse = await axios.post('/api/user/check-account', { email: formData.email });
+      const { userExists } = emailExistsResponse.data;
+      if (userExists) {
+        setError('Este correo electrónico ya está registrado');
+        return;
+      }
+    } catch (error) {
+      console.error('Error al verificar correo electrónico:', error.message);
+      setError('Error al verificar correo electrónico. Inténtalo de nuevo más tarde.');
+      return;
+    }
+
+    // Si el correo electrónico no está duplicado, proceder con el registro
     try {
       const response = await axios.post('/api/user', {
         nombre: formData.nombre,
         apellido: formData.apellido,
         email: formData.email,
         password: formData.password,
-        tipoUsuario: 'admin'
+        tipoUsuario: formData.tipoUsuario
       });
 
       console.log('Usuario registrado:', response.data);
@@ -73,11 +89,11 @@ const Parkin_Register = () => {
         email: '',
         password: '',
         confirmPassword: '',
-        tipoUsuario: ''
+        tipoUsuario: 'admin'
       });
       setError('');
       alert('¡Usuario registrado exitosamente!');
-      navigate('/establishment');
+      navigate('/reserve');
     } catch (error) {
       console.error('Error al registrar usuario:', error.response);
       if (error.response && error.response.status === 400) {
@@ -87,11 +103,6 @@ const Parkin_Register = () => {
       }
     }
   };
-
-  if (serverStatus === 'checking') {
-    return <p>Verificando conexión con el servidor...</p>;
-  }
-
   return (
     <div className='register-page'>
       <div className="page-container">
@@ -180,7 +191,7 @@ const Parkin_Register = () => {
             <button type="submit" disabled={!acceptedTerms}>Registrar</button>
           </form>
           <p className="login-link">
-            ¿Ya tienes cuenta? <Link to="/login">Iniciar Sesión</Link>
+            ¿Ya tienes cuenta? <Link to="/signin">Iniciar Sesión</Link>
           </p>
         </div>
         <img src={require('../../assets/img/carro prom.png')} alt="Decoración" className="decorative-icon" />

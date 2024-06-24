@@ -3,6 +3,7 @@ import '../../assets/css/User_Form.css';
 import userIcon from '../../assets/img/user_icon.png';
 import { Link } from 'react-router-dom';
 import axios from '../../Api/Axiosconfig.js';
+import { useNavigate } from 'react-router-dom'; 
 
 const User_Register = () => {
   const [acceptedTerms, setAcceptedTerms] = useState(false);
@@ -12,16 +13,15 @@ const User_Register = () => {
     email: '',
     password: '',
     confirmPassword: '',
-    tipoUsuario: 'cliente'
+    tipoUsuario: 'client'
   });
   const [error, setError] = useState('');
-  const [serverStatus, setServerStatus] = useState('checking'); // Estado inicial de comprobación
+  const [serverStatus, setServerStatus] = useState('checking');
+  const navigate = useNavigate();
 
   useEffect(() => {
-    // Función para verificar la conexión al servidor
     const checkServerConnection = async () => {
       try {
-        // Realiza una solicitud GET a un endpoint existente para verificar la conexión
         const response = await axios.get('/ping');
         if (response.status === 200) {
           setServerStatus('connected');
@@ -34,7 +34,6 @@ const User_Register = () => {
         console.error('No se pudo conectar al servidor:', error.message);
       }
     };
-
     checkServerConnection();
   }, []);
 
@@ -60,40 +59,52 @@ const User_Register = () => {
       setError('Las contraseñas no coinciden');
       return;
     }
+
+    // Verificar si el correo electrónico ya está registrado
+    try {
+      const emailExistsResponse = await axios.post('/api/user/check-account', { email: formData.email });
+      const { userExists } = emailExistsResponse.data;
+      if (userExists) {
+        setError('Este correo electrónico ya está registrado');
+        return;
+      }
+    } catch (error) {
+      console.error('Error al verificar correo electrónico:', error.message);
+      setError('Error al verificar correo electrónico. Inténtalo de nuevo más tarde.');
+      return;
+    }
+
+    // Si el correo electrónico no está duplicado, proceder con el registro
     try {
       const response = await axios.post('/api/user', {
         nombre: formData.nombre,
         apellido: formData.apellido,
         email: formData.email,
         password: formData.password,
-        tipoUsuario: formData.tipoUsuario.toLowerCase() // Asegura que el tipo de usuario se envíe en minúsculas
+        tipoUsuario: formData.tipoUsuario
       });
+
       console.log('Usuario registrado:', response.data);
-      // Limpiar el formulario después de un registro exitoso, redirigir o mostrar mensaje de éxito
       setFormData({
         nombre: '',
         apellido: '',
         email: '',
         password: '',
         confirmPassword: '',
-        tipoUsuario: ''
+        tipoUsuario: 'client'
       });
       setError('');
       alert('¡Usuario registrado exitosamente!');
+      navigate('/reserve');
     } catch (error) {
-      console.error('Error al registrar usuario:', error.response); // Mostrar el error completo para depuración
+      console.error('Error al registrar usuario:', error.response);
       if (error.response && error.response.status === 400) {
-        setError('Error al registrar usuario: ' + error.response.data.error); // Mostrar mensaje de error del servidor
+        setError('Error al registrar usuario: ' + error.response.data.error.join(', '));
       } else {
-        setError('Error al registrar usuario. Inténtalo de nuevo más tarde.'); // Mensaje genérico para otros errores
+        setError('Error al registrar usuario. Inténtalo de nuevo más tarde.');
       }
     }
   };
-
-  if (serverStatus === 'checking') {
-    return <p>Verificando conexión con el servidor...</p>; // Puedes mostrar un mensaje de carga mientras se verifica la conexión
-  }
-
   return (
     <div className='user-register-page'>
       <div className="user-register-wrapper">
