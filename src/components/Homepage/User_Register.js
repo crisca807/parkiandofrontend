@@ -158,6 +158,7 @@ const User_Register = () => {
                   onChange={handleInputChange}
                 >
                   <option value="" disabled>Tipo de Usuario</option>
+                  <option value="admin">Administrador</option>
                   <option value="client">Cliente</option>
                 </select>
               </div>
