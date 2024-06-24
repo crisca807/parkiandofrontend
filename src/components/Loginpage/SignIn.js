@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
@@ -10,7 +11,7 @@ import Box from '@mui/material/Box';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
-import { Link as RouterLink, useNavigate } from 'react-router-dom';
+import { Link as RouterLink } from 'react-router-dom';
 import '../../assets/css/Login_Styles.css';
 
 function SignIn() {
@@ -23,15 +24,33 @@ function SignIn() {
     e.preventDefault();
     try {
       const response = await axios.post('http://localhost:3004/api/user/auth', { email, password });
+
       if (response.data.message === 'success' && response.data.token) {
         localStorage.setItem('token', response.data.token);
-        navigate('/');
+
+        // Redireccionar según el tipo de usuario
+        if (response.data.userType === 'admin') {
+          navigate('/establishment');
+        } else if (response.data.userType === 'client') {
+          navigate('/');
+        } else {
+          setError('Tipo de usuario desconocido');
+        }
       } else {
         setError('Correo electrónico o contraseña inválidos');
       }
     } catch (error) {
       console.error('Error al autenticar usuario:', error);
-      setError('Error al autenticar usuario. Por favor, inténtalo de nuevo más tarde.');
+      if (error.response) {
+        console.error('Respuesta del servidor:', error.response.data);
+        setError('Error del servidor: ' + error.response.data.error);
+      } else if (error.request) {
+        console.error('No se recibió respuesta del servidor');
+        setError('No se recibió respuesta del servidor. Por favor, inténtalo de nuevo más tarde.');
+      } else {
+        console.error('Error durante la solicitud:', error.message);
+        setError('Error durante la solicitud. Por favor, inténtalo de nuevo más tarde.');
+      }
     }
   };
 
@@ -100,7 +119,7 @@ function SignIn() {
                 </RouterLink>
               </Grid>
             </Grid>
-          </form>
+          </form>  
         </div>
         <Box mt={8}>
           <Typography variant="body2" color="textSecondary" align="center">
