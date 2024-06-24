@@ -12,7 +12,7 @@ const User_Register = () => {
     email: '',
     password: '',
     confirmPassword: '',
-    tipoUsuario: ''
+    tipoUsuario: 'cliente'
   });
   const [error, setError] = useState('');
   const [serverStatus, setServerStatus] = useState('checking'); // Estado inicial de comprobación
@@ -158,7 +158,7 @@ const User_Register = () => {
                   onChange={handleInputChange}
                 >
                   <option value="" disabled>Tipo de Usuario</option>
-                  <option value="admin">Administrador</option>
+              
                   <option value="client">Cliente</option>
                 </select>
               </div>

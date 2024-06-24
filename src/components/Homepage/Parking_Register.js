@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link, useNavigate } from 'react-router-dom'; // Import useNavigate
+import { Link, useNavigate } from 'react-router-dom';
 import '../../assets/css/Register_Form.css';
 import axios from '../../Api/Axiosconfig.js';
 
@@ -11,12 +11,11 @@ const Parkin_Register = () => {
     email: '',
     password: '',
     confirmPassword: '',
-    tipoUsuario: '',
-    address: '' // Add address field to form data state
+    tipoUsuario: 'admin'
   });
   const [error, setError] = useState('');
   const [serverStatus, setServerStatus] = useState('checking');
-  const navigate = useNavigate(); // Create navigate instance
+  const navigate = useNavigate();
 
   useEffect(() => {
     const checkServerConnection = async () => {
@@ -59,22 +58,12 @@ const Parkin_Register = () => {
       return;
     }
     try {
-      console.log('Enviando datos al servidor:', {
+      const response = await axios.post('/api/user', {
         nombre: formData.nombre,
         apellido: formData.apellido,
         email: formData.email,
         password: formData.password,
-        tipoUsuario: 'admin',
-        address: formData.address
-      });
-
-      const response = await axios.post('/api/Admin', {
-        nombre: formData.nombre,
-        apellido: formData.apellido,
-        email: formData.email,
-        password: formData.password,
-        tipoUsuario: 'admin',
-        address: formData.address // Send the address in the form data
+        tipoUsuario: 'admin'
       });
 
       console.log('Usuario registrado:', response.data);
@@ -84,12 +73,11 @@ const Parkin_Register = () => {
         email: '',
         password: '',
         confirmPassword: '',
-        tipoUsuario: '',
-        address: '' // Clear the address field
+        tipoUsuario: ''
       });
       setError('');
       alert('¡Usuario registrado exitosamente!');
-      navigate('/establishment'); // Redirect to the establishment page
+      navigate('/establishment');
     } catch (error) {
       console.error('Error al registrar usuario:', error.response);
       if (error.response && error.response.status === 400) {
@@ -99,7 +87,6 @@ const Parkin_Register = () => {
       }
     }
   };
-
 
   if (serverStatus === 'checking') {
     return <p>Verificando conexión con el servidor...</p>;
@@ -126,37 +113,29 @@ const Parkin_Register = () => {
                   required
                 />
               </label>
+              <label>
+                <input
+                  type="text"
+                  name="apellido"
+                  placeholder="Apellido"
+                  value={formData.apellido}
+                  onChange={handleInputChange}
+                  required
+                />
+              </label>
             </div>
-            <label>
-              <input
-                type="text"
-                name="apellido"
-                placeholder="Apellido"
-                value={formData.apellido}
-                onChange={handleInputChange}
-                required
-              />
-            </label>
-            <label>
-              <input
-                type="email"
-                name="email"
-                placeholder="Email"
-                value={formData.email}
-                onChange={handleInputChange}
-                required
-              />
-            </label>
-            <label>
-              <input
-                type="text"
-                name="address"
-                placeholder="Dirección"
-                value={formData.address}
-                onChange={handleInputChange}
-                required
-              />
-            </label>
+            <div className="form-row">
+              <label>
+                <input
+                  type="email"
+                  name="email"
+                  placeholder="Email"
+                  value={formData.email}
+                  onChange={handleInputChange}
+                  required
+                />
+              </label>
+            </div>
             <div className="form-row">
               <label>
                 <input
@@ -191,13 +170,13 @@ const Parkin_Register = () => {
               </select>
             </div>
             <div className="terms-container">
-                <input
-                  type="checkbox"
-                  checked={acceptedTerms}
-                  onChange={handleCheckboxChange}
-                />
-                <label>Acepto <Link to="/terminos_condiciones">términos y condiciones</Link></label>
-              </div>
+              <input
+                type="checkbox"
+                checked={acceptedTerms}
+                onChange={handleCheckboxChange}
+              />
+              <label>Acepto <Link to="/terminos_condiciones">términos y condiciones</Link></label>
+            </div>
             <button type="submit" disabled={!acceptedTerms}>Registrar</button>
           </form>
           <p className="login-link">
