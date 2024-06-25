@@ -85,7 +85,8 @@ function Reserve() {
       duration: duracionEstancia,
       totalPrice: precioTotal,
       plate: placaVehiculo,
-      vehicleType: tipoVehiculo === 'carro' ? 'car' : 'motorcycle', // Asegúrate de que tipoVehiculo sea 'car' o 'motorcycle'
+      vehicleType: tipoVehiculo === 'carro' ? 'car' : 'motorcycle',
+      status: 'pending' // Set status to pending by default
     };
   
     try {
