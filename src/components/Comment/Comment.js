@@ -29,7 +29,7 @@ const CommentBox = () => {
                 throw new Error('Email not found or not a string in localStorage');
             }
     
-            const response = await axios.post('http://localhost:3004/api/comments', {
+            const response = await axios.post('https://api-rest-node-js-parkiando.onrender.com/api/comments', {
                 email: email,
                 parking: selectedParking,
                 valoration: valoration,

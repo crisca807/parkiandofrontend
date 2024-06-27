@@ -90,7 +90,7 @@ function Reserve() {
     };
   
     try {
-      const response = await axios.post('http://localhost:3004/api/reservations', reservationData);
+      const response = await axios.post('https://api-rest-node-js-parkiando.onrender.com/api/reservations', reservationData);
       console.log('Reserva creada correctamente:', response.data);
   
       // Mostrar alerta de reserva exitosa
