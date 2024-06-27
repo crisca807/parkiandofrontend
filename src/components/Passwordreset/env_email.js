@@ -1,15 +1,25 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import axios from '../../Api/Axiosconfig'; // Asegúrate de importar Axios si no lo has hecho
 import logo from '../../assets/img/loguito.png'; // Asegúrate de importar tu logo adecuadamente
 import '../../assets/css/reset.css';
+
 const ResetPasswordPage = () => {
   const [email, setEmail] = useState('');
 
-  const handleResetPassword = () => {
-    // Aquí puedes implementar la lógica para enviar una solicitud de reestablecimiento de contraseña
-    // Por ejemplo, enviar el correo electrónico a un endpoint de backend o mostrar un mensaje de éxito
-    alert(`Se enviará un correo electrónico de reestablecimiento a: ${email}`);
-    // Puedes redirigir al usuario a otra página después de enviar el correo, si es necesario
+  const handleResetPassword = async () => {
+    try {
+      // Realiza la solicitud POST al endpoint del backend
+      const response = await axios.post('/api/user/send-email', { email });
+      
+      // Maneja la respuesta del servidor
+      alert(response.data.message); // Muestra el mensaje de éxito al usuario
+
+      // Puedes redirigir al usuario a otra página después de enviar el correo, si es necesario
+    } catch (error) {
+      console.error('Error al enviar el correo electrónico:', error);
+      alert('No se pudo enviar el correo electrónico. Por favor, inténtalo de nuevo más tarde.');
+    }
   };
 
   return (

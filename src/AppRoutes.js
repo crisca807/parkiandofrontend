@@ -10,7 +10,10 @@ import Profile from './components/Homepage/Profile.js';
 import Reserve from './components/Reservepage/Reserver.js';
 import EstablecimientoForm from './components/Establishmentpage/Establishment.js';
 import CommentsPage from './components/Reviewpage/Review.js';
-import ResetPassword from './components/Passwordreset/reset.js';
+import ResetPasswordPage from './components/Passwordreset/env_email.js';
+import ResetPassword  from './components/Restablishpage/Restablish.js';
+
+
 function AppRoutes() {
   return (
     <Router>
@@ -26,8 +29,8 @@ function AppRoutes() {
           <Route path="/Reserve" element={<Reserve />} />
           <Route path="/establishment" element={<EstablecimientoForm/>} />
           <Route path="/commentsPage" element={<CommentsPage/>} />
+          <Route path="/reset" element={<ResetPasswordPage/>} />
           <Route path="/resetPassword" element={<ResetPassword/>} />
-
 
 
         </Routes>
