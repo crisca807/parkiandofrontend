@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import '../../assets/css/Profile.styles.css';
 import logoPK from '../../assets/img/logoPK.jpg';
 import Parqueadero3 from '../../assets/img/parqueadero3.jpg';
@@ -6,16 +6,19 @@ import Parqueadero4 from '../../assets/img/parqueadero4.jpg';
 
 const Profile = () => {
   const [section, setSection] = useState('Perfil');
-  const [nombre, setNombre] = useState('Juan Pérez');
-  const [fechaNacimiento, setFechaNacimiento] = useState('10 de Enero de 1985');
-  const [pais, setPais] = useState('Colombia');
-  const [correo, setCorreo] = useState('juanperez@example.com');
-  const [telefono, setTelefono] = useState('+57 123456789');
-  const [nuevoNombre, setNuevoNombre] = useState('');
-  const [nuevaFechaNacimiento, setNuevaFechaNacimiento] = useState('');
-  const [nuevoPais, setNuevoPais] = useState('');
-  const [nuevoCorreo, setNuevoCorreo] = useState('');
-  const [nuevoTelefono, setNuevoTelefono] = useState('');
+  const [name, setName] = useState('');
+  const [lastName, setLastName] = useState('');
+  const [email, setEmail] = useState('');
+
+  useEffect(() => {
+    // Obtener datos del usuario desde localStorage al cargar el componente
+    const user = JSON.parse(localStorage.getItem('user'));
+    if (user) {
+      setName(user.name);
+      setLastName(user.lastName);
+      setEmail(user.email);
+    }
+  }, []); // El array vacío como segundo argumento ejecuta el efecto solo una vez al montar el componente
 
   const handleMenuClick = (menuOption) => {
     setSection(menuOption);
@@ -26,22 +29,14 @@ const Profile = () => {
     }
   };
 
-  const handleActualizarClick = () => {
-    // Actualizar los estados locales con los nuevos valores ingresados en los campos de configuración de cuenta
-    setNombre(nuevoNombre);
-    setFechaNacimiento(nuevaFechaNacimiento);
-    setPais(nuevoPais);
-    setCorreo(nuevoCorreo);
-    setTelefono(nuevoTelefono);
-  };
-
   return (
     <div className="profile-container">
       <div className="sidebar">
         <div className="profile-pic">
           <img src={logoPK} alt="Profile" />
         </div>
-        <h2>Usuario: {nombre}</h2>
+        <h2>Usuario: {name} {lastName}</h2>
+        <p>Email: {email}</p>
         <ul>
           <li onClick={() => handleMenuClick('Perfil')}>Perfil</li>
           <li onClick={() => handleMenuClick('Historial de Reservas')}>Historial de Reservas</li>
@@ -54,12 +49,9 @@ const Profile = () => {
         <div id="Perfil">
           <h1>Perfil</h1>
           <div className="profile-info">
-            <p><strong>Nombre:</strong> {nombre}</p>
-            <p><strong>Fecha de Nacimiento:</strong> {fechaNacimiento}</p>
-            <p><strong>País:</strong> {pais}</p>
-            <p><strong>Correo Electrónico:</strong> {correo}</p>
-            <p><strong>Teléfono:</strong> {telefono}</p>
-
+            <p><strong>Nombre:</strong> {name}</p>
+            <p><strong>Apellido:</strong> {lastName}</p>
+            <p><strong>Email:</strong> {email}</p>
             {/* Agrega más datos del perfil aquí */}
           </div>
         </div>
@@ -104,19 +96,6 @@ const Profile = () => {
               <p>Parqueadero La Candelaria</p>
             </div>
           </div>
-        </div>
-        <div id="Configuraciones de Cuenta">
-          <h1>Configuraciones de Cuenta</h1>
-          <div className="profile-info">
-            <p><strong>Nombre:</strong> <input type="text" value={nuevoNombre} onChange={(e) => setNuevoNombre(e.target.value)} /></p>
-            <p><strong>Fecha de Nacimiento:</strong> <input type="text" value={nuevaFechaNacimiento} onChange={(e) => setNuevaFechaNacimiento(e.target.value)} /></p>
-            <p><strong>País:</strong> <input type="text" value={nuevoPais} onChange={(e) => setNuevoPais(e.target.value)} /></p>
-            <p><strong>Correo Electrónico:</strong> <input type="text" value={nuevoCorreo} onChange={(e) => setNuevoCorreo(e.target.value)} /></p>
-            <p><strong>Teléfono:</strong> <input type="text" value={nuevoTelefono} onChange={(e) => setNuevoTelefono(e.target.value)} /></p>
-
-            {/* Agrega más campos de perfil editables aquí */}
-          </div>
-          <button onClick={handleActualizarClick}>Actualizar</button>
         </div>
       </div>
     </div>
