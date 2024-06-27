@@ -12,7 +12,7 @@ import EstablecimientoForm from './components/Establishmentpage/Establishment.js
 import CommentsPage from './components/Reviewpage/Review.js';
 import ResetPasswordPage from './components/Passwordreset/env_email.js';
 import ResetPassword  from './components/Restablishpage/Restablish.js';
-
+import CommentList  from './components/Comment/Commentarary.js';
 
 function AppRoutes() {
   return (
@@ -31,6 +31,8 @@ function AppRoutes() {
           <Route path="/commentsPage" element={<CommentsPage/>} />
           <Route path="/reset" element={<ResetPasswordPage/>} />
           <Route path="/resetPassword" element={<ResetPassword/>} />
+          <Route path="/commentlist" element={< CommentList/>} />
+
 
 
         </Routes>

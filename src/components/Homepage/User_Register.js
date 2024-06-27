@@ -95,7 +95,7 @@ const User_Register = () => {
       });
       setError('');
       alert('¡Usuario registrado exitosamente!');
-      navigate('/reserve');
+      navigate('/signin');
     } catch (error) {
       console.error('Error al registrar usuario:', error.response);
       if (error.response && error.response.status === 400) {

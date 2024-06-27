@@ -39,7 +39,7 @@ function SignIn() {
         if (userType === 'admin') {
           navigate('/establishment');
         } else if (userType === 'client') {
-          navigate('/');
+          navigate('/reserve');
         } else {
           setError('Tipo de usuario desconocido');
         }
@@ -60,6 +60,7 @@ function SignIn() {
       }
     }
   };
+
 
   return (
     <div className='body-login'>
@@ -116,7 +117,7 @@ function SignIn() {
             </Button>
             <Grid container className="links-container">
               <Grid item xs={12}>
-                <Link href="#" variant="body2" className="forgot-password">
+                <Link href="/reset" variant="body2" className="forgot-password">
                   ¿Olvidaste tu contraseña?
                 </Link>
               </Grid>

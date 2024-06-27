@@ -22,6 +22,8 @@ export const Banner = () => {
                   <p>Parkiando hace que aparcar sea fácil y conveniente! Reserva tu estacionamiento sin filas ni esperas desde tu celular en cualquier momento. ¡No más estrés ni pérdida de tiempo.</p>
                   <button className='Button-join' onClick={() => console.log('connect')}>ÚNETE <ArrowRightCircle size={25} /></button>
                 </div>}
+
+                
             </TrackVisibility>
           </Col>
           <Col xs={12} md={6} xl={5}>

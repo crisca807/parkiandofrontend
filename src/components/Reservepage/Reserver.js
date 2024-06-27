@@ -119,8 +119,11 @@ function Reserve() {
           <img src={logoSrc} alt="Logo MiApp" className="navbar-logo" />
         </Link>
         <div className="navbar-links navbar-links-register">
-          <Link to="/"><span>Inicio</span></Link>
-          <Link to="/profile"><span>Perfil</span></Link>
+           <Link to="/profile"><span>Perfil</span></Link>
+          <Link to="/profile"><span>Tus reservas</span></Link>
+          <Link to="/commentBox"><span>Comentarios</span></Link>
+
+          
           <button onClick={() => alert('¡Sesión cerrada!')}>Cerrar Sesión</button>
         </div>
       </nav>

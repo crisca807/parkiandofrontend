@@ -30,6 +30,8 @@ const EstablishmentForm = () => {
       const response = await axios.post('/api/establishments', formData);
       console.log('Establecimiento registrado:', response.data);
       setMessage('¡Establecimiento registrado exitosamente!');
+      alert('¡Tus datos se enviaron correctamente! en los proximos dias se te comunicara la integracion de tu establecimiento en Parkiando ');
+      navigate('/profile');
     } catch (error) {
       console.error('Error al registrar establecimiento:', error);
       if (error.response && error.response.data && error.response.data.error) {
@@ -39,6 +41,7 @@ const EstablishmentForm = () => {
       }
     }
   };
+
 
   const handleLogout = () => {
     // Aquí puedes eliminar cualquier token o información de sesión almacenada en el cliente
@@ -56,6 +59,7 @@ const EstablishmentForm = () => {
         </Link>
         <div className="navbar-links-establishment">
           <Link to="/"><span>Inicio</span></Link>
+          <Link to="/"><span>Comentarios</span></Link>
           <Link to="/profile"><span>Perfil</span></Link>
           <button onClick={handleLogout}>Cerrar Sesión</button>
         </div>

@@ -23,9 +23,7 @@ const Navbar = () => {
                     <li>
                         <a href="#projects">Nuestros establecimientos</a>
                     </li>
-                    <li>
-                        <Link to="/commentBox">Comentarios</Link>
-                    </li>
+                    
                 </ul>
             </div>
         </nav>
