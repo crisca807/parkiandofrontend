@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const axiosInstance = axios.create({
-    baseURL: 'http://localhost:10000',
+    baseURL: 'https://api-rest-node-js-parkiando.onrender.com',
     headers: {
         'Content-Type': 'application/json',
     }
